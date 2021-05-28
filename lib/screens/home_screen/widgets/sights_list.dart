@@ -17,6 +17,13 @@ class SightsList extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
         return SightItem(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              "/sightDetail",
+              arguments: sights[index],
+            );
+          },
           imagePath: sights[index].imagePath,
           rating: sights[index].rating,
           sightName: sights[index].name,
