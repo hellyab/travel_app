@@ -20,16 +20,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Travel App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
+      initialRoute: "/home",
       onGenerateRoute: (settings) {
         if (settings.name == "/sightDetail") {
           return PageRouteBuilder(
-            pageBuilder: (context, animation, secondaryAnimation) =>
-                DetailScreen(sight: settings.arguments as Sight),
+            pageBuilder: (context, animation, secondaryAnimation) {
+              late Sight sight;
+              if (settings.arguments is Sight) {
+                sight = settings.arguments as Sight;
+              } else {
+                sight = Sight(
+                  imagePath: "assets/images/lighthouse.jpg",
+                  name: "Some Lighthouse",
+                  rating: 3.5,
+                );
+              }
+              return DetailScreen(
+                sight: sight,
+              );
+            },
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return SlideTransition(
@@ -42,6 +51,13 @@ class MyApp extends StatelessWidget {
             ),
           );
         }
+      },
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      title: 'Travel App',
+      routes: {
+        "/home": (context) => HomeScreen(),
       },
     );
   }

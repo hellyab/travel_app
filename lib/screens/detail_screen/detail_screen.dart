@@ -31,57 +31,74 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              "assets/images/lighthouse.jpg",
-            ),
-            fit: BoxFit.fitHeight,
-          ),
-        ),
-        padding: const EdgeInsets.symmetric(
-          vertical: 8.0,
-          horizontal: 20,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.end,
+        child: Stack(
           children: [
-            SizedBox(
-              height: 50,
-            ),
-            TransparentAppBar(
-              onBackPressed: () => navigateBack(context),
-            ),
-            Spacer(
-              flex: 1,
-            ),
-            RatingBar(
-              isLarge: true,
-              ratersCount: 432,
-              rating: 5,
-              showRatersCount: true,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Lighthouse excursion",
-              style: Theme.of(context).textTheme.headline6?.copyWith(
-                    color: Colors.white,
-                    fontSize: 37,
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
+                      "assets/images/lighthouse.jpg",
+                    ),
+                    fit: BoxFit.fitHeight,
                   ),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 8.0,
+                  horizontal: 20,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    SizedBox(
+                      height: 50,
+                    ),
+                    TransparentAppBar(
+                      onBackPressed: () => navigateBack(context),
+                    ),
+                    Spacer(
+                      flex: 1,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: RatingBar(
+                        isLarge: true,
+                        ratersCount: 432,
+                        rating: 5,
+                        showRatersCount: true,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        "Lighthouse excursion",
+                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                              color: Colors.white,
+                              fontSize: 37,
+                            ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 325,
+                    )
+                  ],
+                ),
+              ),
             ),
-            SizedBox(
-              height: 325,
-            )
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: BottomDetailSheet(
+                sliderValue: sliderValue,
+                onSliderChanged: onSliderChanged,
+              ),
+            ),
           ],
         ),
-      ),
-      extendBody: true,
-      bottomNavigationBar: BottomDetailSheet(
-        sliderValue: sliderValue,
-        onSliderChanged: onSliderChanged,
       ),
     );
   }

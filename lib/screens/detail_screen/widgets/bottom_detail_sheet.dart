@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:travel_app/screens/excursion_popup/excursion_popup.dart';
 import 'package:travel_app/screens/detail_screen/widgets/widgets.dart';
 import 'package:travel_app/shared_widgets/shared_widgets.dart';
 
@@ -62,7 +65,21 @@ class BottomDetailSheet extends StatelessWidget {
                             ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 5,
+                                  sigmaY: 5,
+                                ),
+                                child: ExcursionPopup(),
+                              );
+                            },
+                            backgroundColor: Colors.transparent,
+                          );
+                        },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateColor.resolveWith(
                             (states) => Colors.blue,
