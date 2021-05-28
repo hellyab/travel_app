@@ -20,9 +20,10 @@ class PreferencesActionIcon extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey[300]!,
-                  offset: Offset(1, 2),
-                  blurRadius: 10.0)
+                color: Colors.grey[300]!,
+                offset: Offset(1, 2),
+                blurRadius: 10.0,
+              )
             ],
             color: Colors.white,
             shape: BoxShape.circle,

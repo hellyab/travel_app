@@ -11,29 +11,26 @@ class TransparentAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          IconButton(
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 30,
-            ),
-            onPressed: onBackPressed,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        IconButton(
+          icon: Icon(
+            Icons.arrow_back_rounded,
+            color: Colors.white,
+            size: 30,
           ),
-          IconButton(
-            icon: Icon(
-              Icons.file_upload_outlined,
-              color: Colors.white,
-              size: 30,
-            ),
-            onPressed: onUploadPressed,
-          )
-        ],
-      ),
+          onPressed: onBackPressed,
+        ),
+        IconButton(
+          icon: Icon(
+            Icons.file_upload_outlined,
+            color: Colors.white,
+            size: 30,
+          ),
+          onPressed: onUploadPressed,
+        )
+      ],
     );
   }
 }
