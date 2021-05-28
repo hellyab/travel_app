@@ -27,7 +27,7 @@ class CustomTabBarItem extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                color: active ? Colors.blue : Colors.grey[700],
+                color: active ? Colors.blue : Colors.black87,
                 fontWeight: active ? FontWeight.w500 : FontWeight.w400,
                 letterSpacing: 1.0,
                 fontSize: 17,

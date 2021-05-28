@@ -23,7 +23,7 @@ class TitleBar extends StatelessWidget {
           Text(
             title,
             style: Theme.of(context).textTheme.headline4?.copyWith(
-                  color: Colors.grey[800],
+                  color: Colors.black87,
                   fontWeight: FontWeight.w600,
                 ),
           ),

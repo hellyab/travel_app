@@ -77,12 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Text(
                       'Popular',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 0.5,
-                        color: Colors.grey[800],
-                      ),
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
                     ),
                   ],
                 ),

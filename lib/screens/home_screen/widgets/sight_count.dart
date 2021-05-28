@@ -14,7 +14,7 @@ class SightCount extends StatelessWidget {
       ///plurality of the noun corresponds to the count
       '$count sight${count > 1 ? "s" : ""}',
       style: TextStyle(
-        color: Colors.grey[700],
+        color: Colors.black87,
         fontWeight: FontWeight.w500,
         letterSpacing: 1.0,
         fontSize: 16,
