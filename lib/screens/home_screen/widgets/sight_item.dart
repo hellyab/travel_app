@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'package:travel_app/screens/home_screen/widgets/widgets.dart';
+import 'package:travel_app/shared_widgets/shared_widgets.dart';
 
 class SightItem extends StatelessWidget {
   final String imagePath;
@@ -79,6 +78,8 @@ class SightItem extends StatelessWidget {
                     Spacer(),
                     RatingBar(
                       rating: rating,
+                      isLarge: false,
+                      showRatersCount: false,
                     ),
                     SizedBox(
                       height: 5.0,

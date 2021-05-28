@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 
 class RatingBar extends StatelessWidget {
   final double rating;
+  final int? ratersCount;
+  final bool showRatersCount;
+  final bool isLarge;
 
-  const RatingBar({
+  RatingBar({
     Key? key,
+    required this.isLarge,
+    this.ratersCount,
     required this.rating,
-  }) : super(key: key);
+    this.showRatersCount = false,
+  }) : super(key: key) {
+    assert(ratersCount != null || !showRatersCount);
+  }
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,8 +27,8 @@ class RatingBar extends StatelessWidget {
               : rating >= 0.5
                   ? Icons.star_half_outlined
                   : Icons.star_outline,
-          color: Colors.amber,
-          size: 20,
+          color: Colors.amber[300],
+          size: isLarge ? 25 : 20,
         ),
         Icon(
           rating >= 2
@@ -28,8 +36,8 @@ class RatingBar extends StatelessWidget {
               : rating >= 1.5
                   ? Icons.star_half_outlined
                   : Icons.star_outline,
-          color: Colors.amber,
-          size: 20,
+          color: Colors.amber[300],
+          size: isLarge ? 25 : 20,
         ),
         Icon(
           rating >= 3
@@ -37,8 +45,8 @@ class RatingBar extends StatelessWidget {
               : rating >= 2.5
                   ? Icons.star_half_outlined
                   : Icons.star_outline,
-          color: Colors.amber,
-          size: 20,
+          color: Colors.amber[300],
+          size: isLarge ? 25 : 20,
         ),
         Icon(
           rating >= 4
@@ -46,8 +54,8 @@ class RatingBar extends StatelessWidget {
               : rating >= 3.5
                   ? Icons.star_half_outlined
                   : Icons.star_outline,
-          color: Colors.amber,
-          size: 20,
+          color: Colors.amber[300],
+          size: isLarge ? 25 : 20,
         ),
         Icon(
           rating >= 5
@@ -55,8 +63,8 @@ class RatingBar extends StatelessWidget {
               : rating >= 4.5
                   ? Icons.star_half_outlined
                   : Icons.star_outline,
-          color: Colors.amber,
-          size: 20,
+          color: Colors.amber[300],
+          size: isLarge ? 25 : 20,
         ),
         SizedBox(
           width: 10,
@@ -66,9 +74,21 @@ class RatingBar extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w600,
-            fontSize: 17,
+            fontSize: isLarge ? 22 : 17,
           ),
         ),
+        SizedBox(
+          width: 10,
+        ),
+        if (showRatersCount)
+          Text(
+            "(${ratersCount.toString()})",
+            style: TextStyle(
+              color: Colors.black38,
+              fontWeight: FontWeight.w500,
+              fontSize: isLarge ? 21 : 16,
+            ),
+          ),
       ],
     );
   }
